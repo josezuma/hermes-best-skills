@@ -1,16 +1,16 @@
 # Hermes Best Skills
 
-Una curaduría de las mejores **skills** para [Hermes Agent](https://hermes-agent.nousresearch.com) — el asistente AI autónomo.
+A curated list of the best **skills** for [Hermes Agent](https://hermes-agent.nousresearch.com) — the autonomous AI assistant.
 
-Este repo te ayuda a arrancar rápido: cada skill resuelve un problema real, y todas están probadas.
+This repo helps you get started fast: each skill solves a real problem, and they're all battle-tested.
 
 ---
 
-## Tabla de Contenidos
+## Table of Contents
 
-- [¿Qué es una skill?](#qué-es-una-skill)
-- [Cómo instalar una skill](#cómo-instalar-una-skill)
-- [Skills por categoría](#skills-por-categoría)
+- [What is a skill?](#what-is-a-skill)
+- [How to install a skill](#how-to-install-a-skill)
+- [Skills by category](#skills-by-category)
   - [Coding & Software Development](#coding--software-development)
   - [Autonomous AI Agents](#autonomous-ai-agents)
   - [Creative & Design](#creative--design)
@@ -22,247 +22,247 @@ Este repo te ayuda a arrancar rápido: cada skill resuelve un problema real, y t
   - [Research & Data](#research--data)
   - [Social Media](#social-media)
   - [Red Teaming](#red-teaming)
-- [Skills esenciales para empezar](#skills-esenciales-para-empezar)
-- [Cómo crear tu propia skill](#cómo-crear-tu-propia-skill)
-- [Contribuir](#contribuir)
+- [Essential skills to start](#essential-skills-to-start)
+- [How to create your own skill](#how-to-create-your-own-skill)
+- [Contributing](#contributing)
 
 ---
 
-## ¿Qué es una skill?
+## What is a skill?
 
-Una **skill** en Hermes es un documento markdown (SKILL.md) que le enseña al agente cómo hacer algo específico. Piensa en ello como un "plug-and-play" para capacidades:
+A **skill** in Hermes is a markdown document (SKILL.md) that teaches the agent how to do something specific. Think of it as "plug-and-play" for capabilities:
 
-- Le decís a Hermes _"cargá la skill `plan`"_ y automáticamente sabe estructurar planes de acción.
-- Le decís _"cargá `test-driven-development`"_ y aplica TDD sin que le expliques el ciclo RED-GREEN-REFACTOR.
+- You tell Hermes _\"load the `plan` skill\"_ and it automatically knows how to structure action plans.
+- You say _\"load `test-driven-development`\"_ and it applies TDD without you explaining the RED-GREEN-REFACTOR cycle.
 
-Skills viven en `~/.hermes/skills/` y se cargan con `skill_view("nombre-de-la-skill")`.
+Skills live in `~/.hermes/skills/` and are loaded with `skill_view(\"skill-name\")`.
 
 ---
 
-## Cómo instalar una skill
+## How to install a skill
 
 ```bash
-# 1. Clonar este repo
+# 1. Clone this repo
 git clone https://github.com/josezuma/hermes-best-skills.git
 cd hermes-best-skills
 
-# 2. Copiar las skills que quieras a tu perfil de Hermes
+# 2. Copy the skills you want to your Hermes profile
 cp skills/plan/SKILL.md ~/.hermes/skills/plan/
 
-# 3. O instalar desde el skill store integrado de Hermes
-#    (si la skill está publicada)
+# 3. Or install from the built-in Hermes skill store
+#    (if the skill is published)
 hermes skills install plan
 ```
 
-Para cargar una skill en una sesión:
+To load a skill in a session:
 
 ```python
-skill_view("plan")                    # ver contenido
-skill_view("plan", file_path="references/api.md")  # ver archivo auxiliar
+skill_view(\"plan\")                    # view content
+skill_view(\"plan\", file_path=\"references/api.md\")  # view auxiliary file
 ```
 
 ---
 
-## Skills por categoría
+## Skills by category
 
 ### Coding & Software Development
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [test-driven-development](skills/tdd) | Ciclo RED-GREEN-REFACTOR forzado. Escribe tests antes del código. | Elimina falsos positivos. El agente no puede declarar "funciona" sin tests verdes. |
-| [plan](skills/plan) | Escribe planes accionables en markdown. Tasks pequeñas, paths exactos, código completo. | Evita que el agente codee sin dirección. Úsala ANTES de escribir código. |
-| [systematic-debugging](skills/systematic-debugging) | Debug de 4 fases: reproducir, aislar, entender, fix. | El agente no adivina. Sigue un proceso forense real. |
-| [spike](skills/spike) | Experimentos descartables para validar una idea antes de construir. | Ahorra horas construyendo la dirección equivocada. |
-| [requesting-code-review](skills/requesting-code-review) | Pre-commit review automático: security scan, quality gates, auto-fix. | Atrapa bugs, secretos, y code smells antes del push. |
-| [simplify-code](skills/simplify-code) | 3 agentes en paralelo limpian código reciente. | Refactoring sin riesgo. Cada agente revisa el trabajo de los otros. |
-| [node-inspect-debugger](skills/node-inspect-debugger) | Debug Node.js via `--inspect` + Chrome DevTools Protocol. | Cuando el stack trace no alcanza — inspeccionás variables en vivo. |
-| [python-debugpy](skills/python-debugpy) | Debug Python con pdb REPL + debugpy remoto (DAP). | Lo mismo pero para Python. Breakpoints remotos. |
-| [codebase-inspection](skills/codebase-inspection) | Escanea codebases con pygount: LOC, lenguajes, proporciones. | Saber cuánto realmente hay antes de prometer fechas. |
-| [hermes-agent-skill-authoring](skills/hermes-agent-skill-authoring) | Autoría de SKILL.md: frontmatter, validador, estructura, principios de calidad. | Para escribir tus PROPIAS skills bien desde el vamos. |
+| [test-driven-development](skills/tdd) | Enforces RED-GREEN-REFACTOR cycle. Writes tests before code. | Eliminates false positives. The agent can't claim \"it works\" without green tests. |
+| [plan](skills/plan) | Writes actionable plans in markdown. Small tasks, exact paths, complete code. | Prevents the agent from coding without direction. Use it BEFORE writing code. |
+| [systematic-debugging](skills/systematic-debugging) | 4-phase debugging: reproduce, isolate, understand, fix. | The agent doesn't guess. Follows a real forensic process. |
+| [spike](skills/spike) | Throwaway experiments to validate an idea before building. | Saves hours building in the wrong direction. |
+| [requesting-code-review](skills/requesting-code-review) | Automated pre-commit review: security scan, quality gates, auto-fix. | Catches bugs, secrets, and code smells before push. |
+| [simplify-code](skills/simplify-code) | 3 parallel agents clean up recent code. | Safe refactoring. Each agent reviews the others' work. |
+| [node-inspect-debugger](skills/node-inspect-debugger) | Debug Node.js via `--inspect` + Chrome DevTools Protocol. | When the stack trace isn't enough — inspect live variables. |
+| [python-debugpy](skills/python-debugpy) | Debug Python with pdb REPL + remote debugpy (DAP). | Same but for Python. Remote breakpoints. |
+| [codebase-inspection](skills/codebase-inspection) | Scans codebases with pygount: LOC, languages, ratios. | Know how much there really is before promising deadlines. |
+| [hermes-agent-skill-authoring](skills/hermes-agent-skill-authoring) | SKILL.md authoring: frontmatter, validator, structure, quality principles. | For writing your OWN skills properly from the start. |
 
 ### Autonomous AI Agents
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [claude-code](skills/claude-code) | Delega coding a Claude Code CLI (features, PRs). | Cuando necesitás un segundo agente codeando en paralelo. |
-| [codex](skills/codex) | Delega coding a OpenAI Codex CLI (features, PRs). | Lo mismo con Codex de OpenAI. |
-| [opencode](skills/opencode) | Delega coding a OpenCode CLI (features, PR review). | Alternativa open-source para delegar. |
-| [hermes-agent](skills/hermes-agent) | Configurar, extender, o contribuir a Hermes Agent. | La skill sobre Hermes mismo — configuración, CLI, plugins, providers. |
-| [kanban-orchestrator](skills/kanban-orchestrator) | Descomposición de tareas + reglas anti-tentación para el rol de orquestador. | Orquestar trabajo sin hacerlo vos mismo. |
-| [kanban-worker](skills/kanban-worker) | Pitfalls, ejemplos, edge cases para workers Kanban. | Cuando ejecutás tareas dentro de un flujo Kanban. |
+| [claude-code](skills/claude-code) | Delegates coding to Claude Code CLI (features, PRs). | When you need a second agent coding in parallel. |
+| [codex](skills/codex) | Delegates coding to OpenAI Codex CLI (features, PRs). | Same with OpenAI's Codex. |
+| [opencode](skills/opencode) | Delegates coding to OpenCode CLI (features, PR review). | Open-source alternative for delegation. |
+| [hermes-agent](skills/hermes-agent) | Configure, extend, or contribute to Hermes Agent. | The skill about Hermes itself — config, CLI, plugins, providers. |
+| [kanban-orchestrator](skills/kanban-orchestrator) | Task decomposition + anti-temptation rules for the orchestrator role. | Orchestrate work without doing it yourself. |
+| [kanban-worker](skills/kanban-worker) | Pitfalls, examples, edge cases for Kanban workers. | When executing tasks inside a Kanban flow. |
 
 ### Creative & Design
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [sketch](skills/sketch) | Mockups HTML descartables: 2-3 variantes de diseño para comparar. | Validar diseño visual en 5 minutos, no 2 horas. |
-| [claude-design](skills/claude-design) | Diseñar artifacts HTML únicos (landing, deck, prototype). | Una sola página con diseño premium, sin framework. |
-| [architecture-diagram](skills/architecture-diagram) | Diagramas SVG dark-mode de arquitectura/infra como HTML. | Documentación técnica que se ve bien en docs. |
-| [excalidraw](skills/excalidraw) | Diagramas hand-drawn en JSON (arquitectura, flujo, secuencia). | Para compartir en PRs o docs informales. |
-| [popular-web-designs](skills/popular-web-designs) | 54 sistemas de diseño reales (Stripe, Linear, Vercel) como HTML/CSS. | Inspiración directa de los mejores. |
-| [p5js](skills/p5js) | Sketches p5.js: gen art, shaders, interactive, 3D. | Visualizaciones creativas y demos interactivas. |
-| [ascii-art](skills/ascii-art) | Arte ASCII: pyfiglet, cowsay, boxes, image-to-ascii. | Banners, headers para CLI, decoración en terminal. |
-| [ascii-video](skills/ascii-video) | Video/audio a ASCII animado en colores (MP4/GIF). | Demos retro en terminal. |
-| [manim-video](skills/manim-video) | Animaciones Manim CE: videos estilo 3Blue1Brown. | Explicaciones matemáticas/algorítmicas de alto impacto. |
-| [comfyui](skills/comfyui) | Generar imágenes, video, audio con ComfyUI. | Pipelines visuales de Stable Diffusion, controlnet, etc. |
-| [touchdesigner-mcp](skills/touchdesigner-mcp) | Controlar TouchDesigner via MCP — 36 herramientas nativas. | Visuales en tiempo real desde el agente. |
-| [songwriting-and-ai-music](skills/songwriting-and-ai-music) | Composición musical + prompts para Suno AI. | Generar canciones desde letra + tags. |
-| [heartmula](skills/heartmula) | HeartMuLa: generación de canciones estilo Suno. | Alternativa a Suno desde CLI. |
-| [pretext](skills/pretext) | Layout de texto sin DOM para ASCII art, typography games, gen art. | Demos creativas con @chenglou/pretext. |
+| [sketch](skills/sketch) | Throwaway HTML mockups: 2-3 design variants to compare. | Validate visual design in 5 minutes, not 2 hours. |
+| [claude-design](skills/claude-design) | Design unique HTML artifacts (landing, deck, prototype). | A single page with premium design, no framework. |
+| [architecture-diagram](skills/architecture-diagram) | Dark-mode SVG architecture/infra diagrams as HTML. | Technical documentation that looks great in docs. |
+| [excalidraw](skills/excalidraw) | Hand-drawn JSON diagrams (architecture, flow, sequence). | For sharing in PRs or informal docs. |
+| [popular-web-designs](skills/popular-web-designs) | 54 real design systems (Stripe, Linear, Vercel) as HTML/CSS. | Direct inspiration from the best. |
+| [p5js](skills/p5js) | p5.js sketches: gen art, shaders, interactive, 3D. | Creative visualizations and interactive demos. |
+| [ascii-art](skills/ascii-art) | ASCII art: pyfiglet, cowsay, boxes, image-to-ascii. | Banners, headers for CLI, terminal decoration. |
+| [ascii-video](skills/ascii-video) | Colored animated ASCII from video/audio (MP4/GIF). | Retro demos in the terminal. |
+| [manim-video](skills/manim-video) | Manim CE animations: 3Blue1Brown-style videos. | High-impact mathematical/algorithmic explanations. |
+| [comfyui](skills/comfyui) | Generate images, video, audio with ComfyUI. | Visual pipelines for Stable Diffusion, ControlNet, etc. |
+| [touchdesigner-mcp](skills/touchdesigner-mcp) | Control TouchDesigner via MCP — 36 native tools. | Real-time visuals from the agent. |
+| [songwriting-and-ai-music](skills/songwriting-and-ai-music) | Music composition + Suno AI prompts. | Generate songs from lyrics + tags. |
+| [heartmula](skills/heartmula) | HeartMuLa: Suno-style song generation. | Suno alternative from CLI. |
+| [pretext](skills/pretext) | DOM-less text layout for ASCII art, typography games, gen art. | Creative demos with @chenglou/pretext. |
 
 ### DevOps & Automation
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [watchers](skills/watchers) | Polling de RSS, JSON APIs, y GitHub con watermark dedup. | Monitorear cambios sin infraestructura externa. |
-| [kanban-orchestrator](skills/kanban-orchestrator) | Descomposición de tareas con workflow Kanban. | Gestión de proyecto dentro del agente. |
-| [kanban-worker](skills/kanban-worker) | Ejecución de tareas Kanban con pitfalls documentados. | Para workers que ejecutan tareas asignadas. |
+| [watchers](skills/watchers) | Polls RSS, JSON APIs, and GitHub with watermark dedup. | Monitor changes without external infrastructure. |
+| [kanban-orchestrator](skills/kanban-orchestrator) | Task decomposition with Kanban workflow. | Project management inside the agent. |
+| [kanban-worker](skills/kanban-worker) | Kanban task execution with documented pitfalls. | For workers executing assigned tasks. |
 
 ### Email & Communication
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [agentmail](skills/agentmail) | Dale al agente su propia bandeja de entrada email (agent@agentmail.to). | El agente puede recibir y responder emails autónomamente. |
-| [himalaya](skills/himalaya) | Cliente IMAP/SMTP desde terminal. | Para cuentas de email tradicionales (Gmail, Migadu, etc.). |
-| [one-three-one-rule](skills/one-three-one-rule) | Framework de decisión estructurado: 1 problema → 3 opciones → 1 recomendación. | Cuando hay que elegir entre caminos técnicos. |
+| [agentmail](skills/agentmail) | Gives the agent its own email inbox (agent@agentmail.to). | The agent can send and receive emails autonomously. |
+| [himalaya](skills/himalaya) | IMAP/SMTP client from the terminal. | For traditional email accounts (Gmail, Migadu, etc.). |
+| [one-three-one-rule](skills/one-three-one-rule) | Structured decision framework: 1 problem → 3 options → 1 recommendation. | When choosing between technical paths. |
 
 ### GitHub & Open Source
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [github-auth](skills/github-auth) | Setup de auth: HTTPS tokens, SSH keys, gh CLI login. | Lo primero que necesitás para cualquier operación GitHub. |
-| [github-pr-workflow](skills/github-pr-workflow) | Ciclo de vida completo: branch, commit, open PR, CI, merge. | Sin esta skill el agente no sabe el orden correcto. |
-| [github-code-review](skills/github-code-review) | Review PRs: diffs, inline comments via gh o REST API. | Para revisar código sin salir de la terminal. |
-| [github-issues](skills/github-issues) | Crear, triage, etiquetar, asignar issues. | Gestión de issues desde el agente. |
-| [github-repo-management](skills/github-repo-management) | Clonar, crear, fork repos; manage remotes, releases. | Operaciones de repo que no son PRs ni issues. |
+| [github-auth](skills/github-auth) | Auth setup: HTTPS tokens, SSH keys, gh CLI login. | The first thing you need for any GitHub operation. |
+| [github-pr-workflow](skills/github-pr-workflow) | Complete lifecycle: branch, commit, open PR, CI, merge. | Without this skill the agent doesn't know the correct order. |
+| [github-code-review](skills/github-code-review) | Review PRs: diffs, inline comments via gh or REST API. | Review code without leaving the terminal. |
+| [github-issues](skills/github-issues) | Create, triage, label, assign issues. | Issue management from the agent. |
+| [github-repo-management](skills/github-repo-management) | Clone, create, fork repos; manage remotes, releases. | Repo operations that aren't PRs or issues. |
 
 ### MLOps & AI/ML
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [llama-cpp](skills/llama-cpp) | Inferencia local GGUF + descubrimiento de modelos en HF Hub. | Correr LLMs localmente sin GPU. |
-| [serving-llms-vllm](skills/serving-llms-vllm) | Serving de LLMs con vLLM: alta throughput, API OpenAI, cuantización. | Para producción: sirve modelos con API compatible con OpenAI. |
-| [huggingface-hub](skills/huggingface-hub) | CLI de HuggingFace: buscar, descargar, subir modelos y datasets. | Acceso al ecosistema HF completo. |
-| [evaluating-llms-harness](skills/evaluating-llms-harness) | Benchmarking con lm-eval-harness (MMLU, GSM8K, etc.). | Medir performance real de modelos. |
-| [weights-and-biases](skills/weights-and-biases) | Logging de experimentos, sweeps, model registry, dashboards. | Seguimiento de experimentos de ML. |
-| [obliteratus](skills/obliteratus) | Abliteración de LLMs: remover refusal patterns (diff-in-means). | Para fine-tuning de modelos sin restricciones artificiales. |
-| [audiocraft-audio-generation](skills/audiocraft-audio-generation) | MusicGen text-to-music, AudioGen text-to-sound. | Generación de audio desde texto. |
-| [segment-anything-model](skills/segment-anything-model) | SAM: segmentación de imágenes zero-shot por puntos, boxes, masks. | Segmentación de imágenes sin entrenamiento. |
+| [llama-cpp](skills/llama-cpp) | Local GGUF inference + HF Hub model discovery. | Run LLMs locally without a GPU. |
+| [serving-llms-vllm](skills/serving-llms-vllm) | vLLM serving: high throughput, OpenAI API, quantization. | Production: serve models with OpenAI-compatible API. |
+| [huggingface-hub](skills/huggingface-hub) | HuggingFace CLI: search, download, upload models and datasets. | Full access to the HF ecosystem. |
+| [evaluating-llms-harness](skills/evaluating-llms-harness) | Benchmarking with lm-eval-harness (MMLU, GSM8K, etc.). | Measure real model performance. |
+| [weights-and-biases](skills/weights-and-biases) | Experiment logging, sweeps, model registry, dashboards. | ML experiment tracking. |
+| [obliteratus](skills/obliteratus) | LLM abliteration: remove refusal patterns (diff-in-means). | For fine-tuning models without artificial restrictions. |
+| [audiocraft-audio-generation](skills/audiocraft-audio-generation) | MusicGen text-to-music, AudioGen text-to-sound. | Audio generation from text. |
+| [segment-anything-model](skills/segment-anything-model) | SAM: zero-shot image segmentation by points, boxes, masks. | Image segmentation without training. |
 
 ### Productivity
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [obsidian](skills/obsidian) | Leer, buscar, crear, editar notas en el vault de Obsidian. | El agente puede leer/escribir tu base de conocimiento personal. |
-| [notion](skills/notion) | API de Notion + CLI ntn: pages, databases, markdown, Workers. | Integración directa con Notion. |
-| [airtable](skills/airtable) | API REST de Airtable via curl: CRUD, filters, upserts. | Gestionar bases de datos visuales desde el agente. |
-| [google-workspace](skills/google-workspace) | Gmail, Calendar, Drive, Docs, Sheets via CLI. | Acceso completo a Google Workspace. |
-| [powerpoint](skills/powerpoint) | Crear, leer, editar presentaciones .pptx. | Generar decks automáticamente. |
-| [nano-pdf](skills/nano-pdf) | Editar texto/typos/títulos en PDFs via CLI (lenguaje natural). | Correcciones rápidas en PDFs sin herramientas pesadas. |
-| [ocr-and-documents](skills/ocr-and-documents) | Extraer texto de PDFs/scans con pymupdf, marker-pdf. | Digitalizar documentos escaneados. |
-| [maps](skills/maps) | Geocoding, POIs, rutas, timezones via OpenStreetMap/OSRM. | Información geográfica sin API key. |
-| [petdex](skills/petdex) | Instalar y seleccionar mascotas animadas para Hermes. | Personalización visual del agente. |
-| [teams-meeting-pipeline](skills/teams-meeting-pipeline) | Pipeline de resúmenes de reuniones de Teams via CLI. | Resumir reuniones automáticamente. |
+| [obsidian](skills/obsidian) | Read, search, create, edit notes in your Obsidian vault. | The agent can read/write your personal knowledge base. |
+| [notion](skills/notion) | Notion API + ntn CLI: pages, databases, markdown, Workers. | Direct Notion integration. |
+| [airtable](skills/airtable) | Airtable REST API via curl: CRUD, filters, upserts. | Manage visual databases from the agent. |
+| [google-workspace](skills/google-workspace) | Gmail, Calendar, Drive, Docs, Sheets via CLI. | Full Google Workspace access. |
+| [powerpoint](skills/powerpoint) | Create, read, edit .pptx presentations. | Auto-generate slide decks. |
+| [nano-pdf](skills/nano-pdf) | Edit text/typos/titles in PDFs via CLI (natural language). | Quick PDF fixes without heavy tools. |
+| [ocr-and-documents](skills/ocr-and-documents) | Extract text from PDFs/scans with pymupdf, marker-pdf. | Digitize scanned documents. |
+| [maps](skills/maps) | Geocoding, POIs, routes, timezones via OpenStreetMap/OSRM. | Geographic info without an API key. |
+| [petdex](skills/petdex) | Install and select animated mascots for Hermes. | Visual agent personalization. |
+| [teams-meeting-pipeline](skills/teams-meeting-pipeline) | Teams meeting summary pipeline via CLI. | Auto-summarize meetings. |
 
 ### Research & Data
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [arxiv](skills/arxiv) | Buscar papers por keyword, autor, categoría, o ID. | Acceso directo a literatura académica. |
-| [blogwatcher](skills/blogwatcher) | Monitorear blogs y feeds RSS/Atom via CLI. | Seguimiento de contenido sin redes sociales. |
-| [llm-wiki](skills/llm-wiki) | Base de conocimiento interlinked markdown estilo wiki. | Construir y consultar wikis de conocimiento. |
-| [polymarket](skills/polymarket) | Consultar Polymarket: markets, prices, orderbooks, history. | Información de mercados de predicción. |
-| [scrapling](skills/scrapling) | Web scraping: HTTP, browser stealth, Cloudflare bypass, crawling. | Extraer datos de sitios web con protección. |
-| [research-paper-writing](skills/research-paper-writing) | Escribir papers ML para NeurIPS/ICML/ICLR. | Publicación académica desde el agente. |
-| [jupyter-live-kernel](skills/jupyter-live-kernel) | Python interactivo via kernel Jupyter en vivo (hamelnb). | Exploración de datos iterativa. |
-| [youtube-content](skills/youtube-content) | Transcripts de YouTube a resúmenes, threads, blogs. | Convertir videos en contenido escrito. |
+| [arxiv](skills/arxiv) | Search papers by keyword, author, category, or ID. | Direct access to academic literature. |
+| [blogwatcher](skills/blogwatcher) | Monitor blogs and RSS/Atom feeds via CLI. | Content tracking without social media. |
+| [llm-wiki](skills/llm-wiki) | Interlinked markdown knowledge base. | Build and query knowledge wikis. |
+| [polymarket](skills/polymarket) | Query Polymarket: markets, prices, orderbooks, history. | Prediction market information. |
+| [scrapling](skills/scrapling) | Web scraping: HTTP, browser stealth, Cloudflare bypass, crawling. | Extract data from protected websites. |
+| [research-paper-writing](skills/research-paper-writing) | Write ML papers for NeurIPS/ICML/ICLR. | Academic publishing from the agent. |
+| [jupyter-live-kernel](skills/jupyter-live-kernel) | Interactive Python via live Jupyter kernel (hamelnb). | Iterative data exploration. |
+| [youtube-content](skills/youtube-content) | YouTube transcripts to summaries, threads, blogs. | Convert videos into written content. |
 
 ### Social Media
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [xurl](skills/xurl) | X/Twitter via CLI: post, search, DM, media, API v2. | Gestionar Twitter/X desde terminal. |
-| [gif-search](skills/gif-search) | Buscar/descargar GIFs desde Tenor via curl + jq. | Para respuestas visuales rápidas. |
+| [xurl](skills/xurl) | X/Twitter via CLI: post, search, DM, media, v2 API. | Manage Twitter/X from terminal. |
+| [gif-search](skills/gif-search) | Search/download GIFs from Tenor via curl + jq. | Quick visual responses. |
 
 ### Red Teaming
 
-| Skill | Qué hace | Por qué usarla |
+| Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [godmode](skills/godmode) | Técnicas de jailbreak: Parseltongue, GODMODE, ULTRAPLINIAN. | Para testing de seguridad de LLMs. |
+| [godmode](skills/godmode) | Jailbreak techniques: Parseltongue, GODMODE, ULTRAPLINIAN. | For LLM security testing. |
 
 ---
 
-## Skills esenciales para empezar
+## Essential skills to start
 
-Si sos nuevo en Hermes, instalá estas 5 primero:
+If you're new to Hermes, install these 5 first:
 
 ```
-# 1. Planificar antes de codear
+# 1. Plan before coding
 hermes skills install plan
 
-# 2. No codear sin tests
+# 2. Don't code without tests
 hermes skills install test-driven-development
 
-# 3. Debuggear sistemáticamente
+# 3. Debug systematically
 hermes skills install systematic-debugging
 
-# 4. GitHub sin errores de proceso
+# 4. GitHub without process errors
 hermes skills install github-pr-workflow
 
-# 5. Decisiones estructuradas
+# 5. Structured decisions
 hermes skills install one-three-one-rule
 ```
 
-Con estas 5 skills cubrís el 80% de los problemas diarios: planificar, codificar con calidad, debuggear, publicar, y decidir.
+With these 5 skills you cover 80% of daily problems: planning, quality coding, debugging, publishing, and decision-making.
 
 ---
 
-## Cómo crear tu propia skill
+## How to create your own skill
 
-Usá la skill `hermes-agent-skill-authoring` que te guía con:
+Use the `hermes-agent-skill-authoring` skill that guides you through:
 
-1. **Frontmatter** obligatorio: `name`, `description`, `category`
-2. **Estructura**: trigger conditions, numbered steps, verification
-3. **Pitfalls**: errores comunes que ya conocemos
-4. **Dual mode**: instrucciones para CLI + para agentes autónomos
+1. **Required frontmatter**: `name`, `description`, `category`
+2. **Structure**: trigger conditions, numbered steps, verification
+3. **Pitfalls**: common mistakes we already know about
+4. **Dual mode**: instructions for CLI + for autonomous agents
 
 ```bash
-# Crear una skill nueva
-skill_manage(action='create', name='mi-skill', content=...) 
+# Create a new skill
+skill_manage(action='create', name='my-skill', content=...) 
 
-# Ver el validador
+# View the validator
 skill_view('hermes-agent-skill-authoring')
 ```
 
-Reglas de oro:
-- Mínimo 2000 caracteres de contenido útil
-- Cada paso debe ser ejecutable, no descriptivo
-- Incluir sección de verificación (¿cómo sé que funcionó?)
-- Documentar pitfalls para que otros no pierdan tiempo
+Golden rules:
+- Minimum 2000 characters of useful content
+- Each step must be executable, not descriptive
+- Include a verification section (how do I know it worked?)
+- Document pitfalls so others don't waste time
 
 ---
 
-## Contribuir
+## Contributing
 
-1. Forkeá el repo
-2. Agregá tu skill en `skills/<nombre>/SKILL.md`
-3. Actualizá el README con la entry en la tabla correspondiente
-4. Abrí un PR
+1. Fork the repo
+2. Add your skill in `skills/<name>/SKILL.md`
+3. Update the README with the entry in the corresponding table
+4. Open a PR
 
-**Criterios de aceptación:**
-- SKILL.md con frontmatter válido
-- Mínimo 2000 caracteres de contenido
-- Trigger conditions claras
-- Pasos numbered ejecutables
-- Sección de verificación
-- Pitfalls documentados si aplican
-
----
-
-## Licencia
-
-MIT — hacé lo que quieras con esto.
+**Acceptance criteria:**
+- SKILL.md with valid frontmatter
+- Minimum 2000 characters of content
+- Clear trigger conditions
+- Executable numbered steps
+- Verification section
+- Documented pitfalls if applicable
 
 ---
 
-_Creado por [José Zuma](https://github.com/josezuma) para la comunidad de Hermes Agent._
+## License
+
+MIT — do whatever you want with this.
+
+---
+
+_Created by [José Zuma](https://github.com/josezuma) for the Hermes Agent community._
