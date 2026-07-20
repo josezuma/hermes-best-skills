@@ -32,10 +32,10 @@ This repo helps you get started fast: each skill solves a real problem, and they
 
 A **skill** in Hermes is a markdown document (SKILL.md) that teaches the agent how to do something specific. Think of it as "plug-and-play" for capabilities:
 
-- You tell Hermes _\"load the `plan` skill\"_ and it automatically knows how to structure action plans.
-- You say _\"load `test-driven-development`\"_ and it applies TDD without you explaining the RED-GREEN-REFACTOR cycle.
+- You tell Hermes _"load the `plan` skill"_ and it automatically knows how to structure action plans.
+- You say _"load `test-driven-development`"_ and it applies TDD without you explaining the RED-GREEN-REFACTOR cycle.
 
-Skills live in `~/.hermes/skills/` and are loaded with `skill_view(\"skill-name\")`.
+Skills live in `~/.hermes/skills/` and are loaded with `skill_view("skill-name")`.
 
 ---
 
@@ -57,8 +57,8 @@ hermes skills install plan
 To load a skill in a session:
 
 ```python
-skill_view(\"plan\")                    # view content
-skill_view(\"plan\", file_path=\"references/api.md\")  # view auxiliary file
+skill_view("plan")                    # view content
+skill_view("plan", file_path="references/api.md")  # view auxiliary file
 ```
 
 ---
@@ -69,7 +69,7 @@ skill_view(\"plan\", file_path=\"references/api.md\")  # view auxiliary file
 
 | Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [test-driven-development](skills/tdd) | Enforces RED-GREEN-REFACTOR cycle. Writes tests before code. | Eliminates false positives. The agent can't claim \"it works\" without green tests. |
+| [test-driven-development](skills/tdd) | Enforces RED-GREEN-REFACTOR cycle. Writes tests before code. | Eliminates false positives. The agent can't claim "it works" without green tests. |
 | [plan](skills/plan) | Writes actionable plans in markdown. Small tasks, exact paths, complete code. | Prevents the agent from coding without direction. Use it BEFORE writing code. |
 | [systematic-debugging](skills/systematic-debugging) | 4-phase debugging: reproduce, isolate, understand, fix. | The agent doesn't guess. Follows a real forensic process. |
 | [spike](skills/spike) | Throwaway experiments to validate an idea before building. | Saves hours building in the wrong direction. |
