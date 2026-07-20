@@ -69,7 +69,7 @@ skill_view("plan", file_path="references/api.md")  # view auxiliary file
 
 | Skill | What it does | Why use it |
 |-------|----------|----------------|
-| [test-driven-development](skills/tdd) | Enforces RED-GREEN-REFACTOR cycle. Writes tests before code. | Eliminates false positives. The agent can't claim "it works" without green tests. |
+| [test-driven-development](skills/test-driven-development) | Enforces RED-GREEN-REFACTOR cycle. Writes tests before code. | Eliminates false positives. The agent can't claim "it works" without green tests. |
 | [plan](skills/plan) | Writes actionable plans in markdown. Small tasks, exact paths, complete code. | Prevents the agent from coding without direction. Use it BEFORE writing code. |
 | [systematic-debugging](skills/systematic-debugging) | 4-phase debugging: reproduce, isolate, understand, fix. | The agent doesn't guess. Follows a real forensic process. |
 | [spike](skills/spike) | Throwaway experiments to validate an idea before building. | Saves hours building in the wrong direction. |
