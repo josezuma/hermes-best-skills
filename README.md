@@ -95,6 +95,7 @@ skill_view("plan", file_path="references/api.md")  # view auxiliary file
 
 | Skill | What it does | Why use it |
 |-------|----------|----------------|
+| [feature-ux-architect](skills/feature-ux-architect) | Inspects existing routes, navigation, roles, and workflows before placing or designing a new feature. | Keeps new UI intuitive for beginners without unnecessary pages or menus. |
 | [sketch](skills/sketch) | Throwaway HTML mockups: 2-3 design variants to compare. | Validate visual design in 5 minutes, not 2 hours. |
 | [claude-design](skills/claude-design) | Design unique HTML artifacts (landing, deck, prototype). | A single page with premium design, no framework. |
 | [architecture-diagram](skills/architecture-diagram) | Dark-mode SVG architecture/infra diagrams as HTML. | Technical documentation that looks great in docs. |
